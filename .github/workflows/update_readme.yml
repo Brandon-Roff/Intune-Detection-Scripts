@@ -14,7 +14,7 @@ jobs:
 
     - name: Generate directory listing
       run: |
-        ls -lah  > directory_listing.txt
+        ls -lh >> directory_listing.txt
         git add directory_listing.txt
 
     - name: Update README.md
