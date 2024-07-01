@@ -41,7 +41,18 @@ cd intune-detection-scripts
 ## Contents
 
 ```plaintext
-{{DIRECTORY_LISTING}}
+total 72
+drwxr-xr-x 2 runner docker  4096 Jul  1 21:38 Browsers (System)
+drwxr-xr-x 2 runner docker  4096 Jul  1 21:38 Developer
+-rw-r--r-- 1 runner docker 35149 Jul  1 21:38 LICENSE
+drwxr-xr-x 2 runner docker  4096 Jul  1 21:38 Media
+drwxr-xr-x 2 runner docker  4096 Jul  1 21:38 Network Tools
+drwxr-xr-x 2 runner docker  4096 Jul  1 21:38 Productivity
+-rw-r--r-- 1 runner docker  1748 Jul  1 21:38 README.md
+drwxr-xr-x 2 runner docker  4096 Jul  1 21:38 RMM
+drwxr-xr-x 2 runner docker  4096 Jul  1 21:38 Tools
+drwxr-xr-x 2 runner docker  4096 Jul  1 21:38 VPN
+-rw-r--r-- 1 runner docker     0 Jul  1 21:38 directory_listing.txt
 ```
 
 
