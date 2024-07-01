@@ -33,4 +33,4 @@ jobs:
       run: |
         git add README.md
         git commit -m "Update README with directory listing"
-        git push https://github.com/${{ github.repository }}.git HEAD:main
+        git push https://github.com/${{ github.repository }}.git HEAD:main 
