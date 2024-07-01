@@ -15,8 +15,8 @@ jobs:
 
     - name: Update README.md
       run: |
-        DIRECTORY_LISTING=$(cat directory_listing.txt)
-        sed "s/{{DIRECTORY_LISTING}}/${DIRECTORY_LISTING}/" README.template.md > README.md
+        DIRECTORY_LISTING=$(< directory_listing.txt)
+        sed "s|{{DIRECTORY_LISTING}}|$(echo "$DIRECTORY_LISTING" | sed 's/[\/&]/\\&/g')|" README.template.md > README.md
 
     - name: Commit and push changes
       run: |
