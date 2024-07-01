@@ -1,5 +1,4 @@
 name: Update README with Directory Listing
-
 on:
   push:
     branches:
