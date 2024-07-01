@@ -1,12 +1,16 @@
-total 72K
-drwxr-xr-x 2 runner docker 4.0K Jul  1 21:51 Browsers (System)
-drwxr-xr-x 2 runner docker 4.0K Jul  1 21:51 Developer
--rw-r--r-- 1 runner docker  35K Jul  1 21:51 LICENSE
-drwxr-xr-x 2 runner docker 4.0K Jul  1 21:51 Media
-drwxr-xr-x 2 runner docker 4.0K Jul  1 21:51 Network Tools
-drwxr-xr-x 2 runner docker 4.0K Jul  1 21:51 Productivity
--rw-r--r-- 1 runner docker 2.4K Jul  1 21:51 README.md
-drwxr-xr-x 2 runner docker 4.0K Jul  1 21:51 RMM
-drwxr-xr-x 2 runner docker 4.0K Jul  1 21:51 Tools
-drwxr-xr-x 2 runner docker 4.0K Jul  1 21:51 VPN
--rw-r--r-- 1 runner docker    0 Jul  1 21:51 directory_listing.txt
+total 88K
+drwxr-xr-x 12 runner docker 4.0K Jul  1 21:52 .
+drwxr-xr-x  3 runner docker 4.0K Jul  1 21:52 ..
+drwxr-xr-x  8 runner docker 4.0K Jul  1 21:52 .git
+drwxr-xr-x  3 runner docker 4.0K Jul  1 21:52 .github
+drwxr-xr-x  2 runner docker 4.0K Jul  1 21:52 Browsers (System)
+drwxr-xr-x  2 runner docker 4.0K Jul  1 21:52 Developer
+-rw-r--r--  1 runner docker  35K Jul  1 21:52 LICENSE
+drwxr-xr-x  2 runner docker 4.0K Jul  1 21:52 Media
+drwxr-xr-x  2 runner docker 4.0K Jul  1 21:52 Network Tools
+drwxr-xr-x  2 runner docker 4.0K Jul  1 21:52 Productivity
+-rw-r--r--  1 runner docker 2.4K Jul  1 21:52 README.md
+drwxr-xr-x  2 runner docker 4.0K Jul  1 21:52 RMM
+drwxr-xr-x  2 runner docker 4.0K Jul  1 21:52 Tools
+drwxr-xr-x  2 runner docker 4.0K Jul  1 21:52 VPN
+-rw-r--r--  1 runner docker    0 Jul  1 21:52 directory_listing.txt
