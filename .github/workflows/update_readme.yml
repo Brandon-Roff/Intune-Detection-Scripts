@@ -35,3 +35,5 @@ jobs:
         git add README.md
         git commit -m "Update README with directory listing"
         git push https://github.com/${{ github.repository }}.git HEAD:main
+
+The workflow is triggered on push events to the main branch. It generates a directory listing of the repository, updates the README.md file with the listing, and commits and pushes the changes back to the repository.
