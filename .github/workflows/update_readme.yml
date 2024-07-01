@@ -1,4 +1,3 @@
-
 name: Update README
 
 on:
@@ -24,20 +23,14 @@ jobs:
         awk -v var="$DIRECTORY_LISTING" '{gsub(/{{DIRECTORY_LISTING}}/, var)} 1' README.md > README.md.tmp && mv README.md.tmp README.md
 
     - name: Configure Git
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        USERNAME: ${{ secrets.GITHUB_USERNAME }}
-  
-
       run: |
         git config --global user.name "Brandon-Roff"
         git config --global user.email "roffo@nerdy-technician.social"
-        git config --global user.password ${{ secrets.GITHUB_TOKEN }}
-        git config --global credential.helper store
-        echo "https://github.com/${{ github.repository }}.git $GITHUB_TOKEN" > ~/.git-credentials
-        git config --global credential.helper 'store --file ~/.git-credentials'
 
     - name: Commit and push changes
+      env:
+        TOKEN: ${{ secrets.TOKEN }}
+
       run: |
         git add README.md
         git commit -m "Update README with directory listing"
