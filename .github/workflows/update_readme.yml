@@ -20,7 +20,7 @@ jobs:
     - name: Update README.md
       run: |
         DIRECTORY_LISTING=$(< directory_listing.txt)
-        sed -i 's|{{DIRECTORY_LISTING}}|'"$DIRECTORY_LISTING"'|g' README.md
+        awk -v var="$DIRECTORY_LISTING" '{gsub(/{{DIRECTORY_LISTING}}/, var)} 1' README.md > README.md.tmp && mv README.md.tmp README.md
 
     - name: Commit and push changes
       run: |
