@@ -19,10 +19,8 @@ jobs:
 
     - name: Update README.md
       run: |
-        DIRECTORY_LISTING=$(< directory_listing.txt)
-        # Escape special characters for sed
-        DIRECTORY_LISTING_ESC=$(echo "$DIRECTORY_LISTING" | sed 's/[\/&]/\\&/g')
-        sed -e "s|{{DIRECTORY_LISTING}}|${DIRECTORY_LISTING_ESC}|g" README.template.md > README.md
+        # Combine template and directory listing
+        awk -v var="$(cat directory_listing.txt)" '{gsub(/{{DIRECTORY_LISTING}}/,var)}1' README.template.md > README.md
 
     - name: Commit and push changes
       run: |
