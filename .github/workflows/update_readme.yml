@@ -22,7 +22,7 @@ jobs:
         DIRECTORY_LISTING=$(< directory_listing.txt)
         # Escape special characters for sed
         DIRECTORY_LISTING_ESC=$(echo "$DIRECTORY_LISTING" | sed 's/[\/&]/\\&/g')
-        sed -e "s|{{DIRECTORY_LISTING}}|${DIRECTORY_LISTING_ESC}|" README.template.md > README.md
+        sed -e "s|{{DIRECTORY_LISTING}}|${DIRECTORY_LISTING_ESC}|g" README.template.md > README.md
 
     - name: Commit and push changes
       run: |
