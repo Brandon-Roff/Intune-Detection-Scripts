@@ -1,9 +1,9 @@
-name: Update README
+name: Update README with Directory Listing
 
 on:
   push:
     branches:
-      - main  # Adjust branch name if necessary
+      - main
 
 jobs:
   update-readme:
@@ -15,7 +15,8 @@ jobs:
 
     - name: Generate directory listing
       run: |
-        find . -type f -exec ls -lah {} + > directory_listing.txt
+        find . -type f > directory_listing.txt
+        git add directory_listing.txt
 
     - name: Update README.md
       run: |
@@ -30,9 +31,7 @@ jobs:
     - name: Commit and push changes
       env:
         TOKEN: ${{ secrets.TOKEN }}
-
       run: |
         git add README.md
         git commit -m "Update README with directory listing"
         git push https://github.com/${{ github.repository }}.git HEAD:main
-
