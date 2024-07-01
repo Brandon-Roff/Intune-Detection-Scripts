@@ -15,7 +15,7 @@ jobs:
 
     - name: Generate directory listing
       run: |
-        find . -type f > directory_listing.txt
+        find . -type f -exec ls -lah {} + > directory_listing.txt
         git add directory_listing.txt
 
     - name: Update README.md
