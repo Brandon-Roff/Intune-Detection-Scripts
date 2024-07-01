@@ -32,6 +32,7 @@ jobs:
       run: |
         git config --global user.name "Brandon-Roff"
         git config --global user.email "roffo@nerdy-technician.social"
+        git config --global user.password ${{ secrets.GITHUB_TOKEN }}
         git config --global credential.helper store
         echo "https://github.com/${{ github.repository }}.git $GITHUB_TOKEN" > ~/.git-credentials
         git config --global credential.helper 'store --file ~/.git-credentials'
