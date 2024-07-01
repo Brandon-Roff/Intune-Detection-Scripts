@@ -1,13 +1,17 @@
 name: Update README
 
-on: [push]
+on:
+  push:
+    branches:
+      - main  # Adjust branch name if necessary
 
 jobs:
   update-readme:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout repository
+      uses: actions/checkout@v2
 
     - name: Generate directory listing
       run: |
@@ -16,7 +20,9 @@ jobs:
     - name: Update README.md
       run: |
         DIRECTORY_LISTING=$(< directory_listing.txt)
-        sed "s|{{DIRECTORY_LISTING}}|$(echo "$DIRECTORY_LISTING" | sed 's/[\/&]/\\&/g')|" README.template.md > README.md
+        # Escape special characters for sed
+        DIRECTORY_LISTING_ESC=$(echo "$DIRECTORY_LISTING" | sed 's/[\/&]/\\&/g')
+        sed "s|{{DIRECTORY_LISTING}}|${DIRECTORY_LISTING_ESC}|" README.template.md > README.md
 
     - name: Commit and push changes
       run: |
