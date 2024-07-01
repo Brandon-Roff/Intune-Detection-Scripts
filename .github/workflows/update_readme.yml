@@ -22,12 +22,13 @@ jobs:
         DIRECTORY_LISTING=$(< directory_listing.txt)
         awk -v var="$DIRECTORY_LISTING" '{gsub(/{{DIRECTORY_LISTING}}/, var)} 1' README.md > README.md.tmp && mv README.md.tmp README.md
 
-    - name: Commit and push changes
+    - name: Configure Git
       run: |
-        git config --global user.name "github-actions[bot]"
-        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git config --global user.name "Brandon-Roff"
+        git config --global user.email "roffo@nerdy-technician.social"
+
+    - name: Commit changes
+      run: |
         git add README.md
         git commit -m "Update README with directory listing"
-        git push
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        git push https://github.com/${{ github.repository }}.git HEAD:main
