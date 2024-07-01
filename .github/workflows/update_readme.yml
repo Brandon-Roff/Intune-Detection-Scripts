@@ -1,0 +1,29 @@
+name: Update README
+
+on: [push]
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Generate directory listing
+      run: |
+        ls -l > directory_listing.txt
+
+    - name: Update README.md
+      run: |
+        DIRECTORY_LISTING=$(cat directory_listing.txt)
+        sed "s/{{DIRECTORY_LISTING}}/${DIRECTORY_LISTING}/" README.template.md > README.md
+
+    - name: Commit and push changes
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git add README.md
+        git commit -m "Update README with directory listing"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
