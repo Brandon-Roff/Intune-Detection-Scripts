@@ -19,8 +19,8 @@ jobs:
 
     - name: Update README.md
       run: |
-        # Combine template and directory listing
-        awk -v var="$(cat directory_listing.txt)" '{gsub(/{{DIRECTORY_LISTING}}/,var)}1' README.template.md > README.md
+        DIRECTORY_LISTING=$(< directory_listing.txt)
+        sed -i 's|{{DIRECTORY_LISTING}}|'"$DIRECTORY_LISTING"'|g' README.md
 
     - name: Commit and push changes
       run: |
