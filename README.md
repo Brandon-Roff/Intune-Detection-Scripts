@@ -9,6 +9,7 @@ Welcome to the repository for Intune Detection Scripts for EXE Software. This re
 - [Introduction](#introduction)
 - [Getting Started](#getting-started)
 - [Usage](#usage)
+- [Contents](#contents)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -25,7 +26,6 @@ To get started with these detection scripts, you'll need:
 - PowerShell
 
 
-
 ### 📄 Usage
 1. Clone this repository to your local machine:
 
@@ -38,6 +38,12 @@ git clone https://github.com/yourusername/intune-detection-scripts.git
 ```shell
 cd intune-detection-scripts
 ```
+## Contents
+
+```plaintext
+{{DIRECTORY_LISTING}}
+```
+
 
 ### 🤝 Contributing
 Contributions are welcome! If you have any improvements or additional scripts to share, please fork the repository and submit a pull request.
