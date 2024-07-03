@@ -8,6 +8,8 @@ $ObsidianPath = "$env:USERPROFILE\AppData\Local\Obsidian\Obsidian.exe"
 
 if (Test-Path $ObsidianPath) {
     Write-Host "Obsidian is installed"
+    exit 0
 } else {
     Write-Host "Obsidian is not installed"
+    exit 1
 }

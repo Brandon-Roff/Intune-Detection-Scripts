@@ -8,6 +8,8 @@ $DiscordPath = "$env:USERPROFILE\AppData\Local\Discord\Update.exe"
 
 if (Test-Path $DiscordPath) {
     Write-Host "Discord is installed"
+    exit 0
 } else {
     Write-Host "Discord is not installed"
+    exit 1
 }
