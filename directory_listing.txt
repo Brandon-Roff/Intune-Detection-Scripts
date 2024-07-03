@@ -42,3 +42,17 @@ drwxr-xr-x 2 runner docker 4.0K Jul  2 22:45 RMM
 drwxr-xr-x 2 runner docker 4.0K Jul  2 22:45 Tools
 drwxr-xr-x 2 runner docker 4.0K Jul  2 22:45 VPN
 -rw-r--r-- 1 runner docker 1.6K Jul  2 22:45 directory_listing.txt
+total 84K
+drwxr-xr-x 2 runner docker 4.0K Jul  3 17:54 AV
+drwxr-xr-x 2 runner docker 4.0K Jul  3 17:54 Browsers (System)
+drwxr-xr-x 2 runner docker 4.0K Jul  3 17:54 Buisness
+drwxr-xr-x 2 runner docker 4.0K Jul  3 17:54 Developer
+-rw-r--r-- 1 runner docker  35K Jul  3 17:54 LICENSE
+drwxr-xr-x 2 runner docker 4.0K Jul  3 17:54 Media
+drwxr-xr-x 2 runner docker 4.0K Jul  3 17:54 Network Tools
+drwxr-xr-x 2 runner docker 4.0K Jul  3 17:54 Productivity
+-rw-r--r-- 1 runner docker 2.4K Jul  3 17:54 README.md
+drwxr-xr-x 2 runner docker 4.0K Jul  3 17:54 RMM
+drwxr-xr-x 2 runner docker 4.0K Jul  3 17:54 Tools
+drwxr-xr-x 2 runner docker 4.0K Jul  3 17:54 VPN
+-rw-r--r-- 1 runner docker 2.3K Jul  3 17:54 directory_listing.txt
