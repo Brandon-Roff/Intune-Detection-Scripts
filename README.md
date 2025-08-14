@@ -41,18 +41,19 @@ cd intune-detection-scripts
 ## Contents
 
 ```plaintext
-total 72
-drwxr-xr-x 2 runner docker  4096 Jul  1 21:38 Browsers (System)
-drwxr-xr-x 2 runner docker  4096 Jul  1 21:38 Developer
--rw-r--r-- 1 runner docker 35149 Jul  1 21:38 LICENSE
-drwxr-xr-x 2 runner docker  4096 Jul  1 21:38 Media
-drwxr-xr-x 2 runner docker  4096 Jul  1 21:38 Network Tools
-drwxr-xr-x 2 runner docker  4096 Jul  1 21:38 Productivity
--rw-r--r-- 1 runner docker  1748 Jul  1 21:38 README.md
-drwxr-xr-x 2 runner docker  4096 Jul  1 21:38 RMM
-drwxr-xr-x 2 runner docker  4096 Jul  1 21:38 Tools
-drwxr-xr-x 2 runner docker  4096 Jul  1 21:38 VPN
--rw-r--r-- 1 runner docker     0 Jul  1 21:38 directory_listing.txt
+drwxr-xr-x 2 runner docker 4.0K Aug 14 01:56 AV
+drwxr-xr-x 2 runner docker 4.0K Aug 14 01:56 Browsers (System)
+drwxr-xr-x 2 runner docker 4.0K Aug 14 01:56 Buisness
+drwxr-xr-x 2 runner docker 4.0K Aug 14 01:56 Developer
+-rw-r--r-- 1 runner docker  35K Aug 14 01:56 LICENSE
+drwxr-xr-x 2 runner docker 4.0K Aug 14 01:56 Media
+drwxr-xr-x 2 runner docker 4.0K Aug 14 01:56 Monitoring
+drwxr-xr-x 2 runner docker 4.0K Aug 14 01:56 Network Tools
+drwxr-xr-x 2 runner docker 4.0K Aug 14 01:56 Productivity
+-rw-r--r-- 1 runner docker 2.4K Aug 14 01:56 README.md
+drwxr-xr-x 2 runner docker 4.0K Aug 14 01:56 RMM
+drwxr-xr-x 2 runner docker 4.0K Aug 14 01:56 Tools
+drwxr-xr-x 2 runner docker 4.0K Aug 14 01:56 VPN
 ```
 
 
