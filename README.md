@@ -110,21 +110,6 @@ Import-Module "$PSScriptRoot/../modules/DetectionCommon.psm1" -Force
 $detected = [bool](Get-AppByName '*App Name*') -or (Test-FilePaths @('C:\Program Files\App\app.exe')) -or (Test-ExecutableInPath @('app'))
 Resolve-Detection -Detected:$detected -Label 'App Name'
 ```
-
-## 📦 Packaging & Releases
-
-The packaging script gathers all folders and creates: 
-- `manifest.json` containing version, UTC build time, and script count.
-- `Intune-Detection-Scripts-vX.Y.Z.zip` archive for distribution.
-
-### Automatic Versioning
-On each push to `main`:
-1. Workflow enumerates existing semantic tags `vMAJOR.MINOR.PATCH`.
-2. Increments PATCH (`v1.0.0` if none exist).
-3. Creates and pushes the new tag.
-4. Runs `build/pack.ps1 -Version <tag>`.
-5. Publishes a GitHub Release attaching the zip.
-
 ### Manual Trigger
 You can also trigger the workflow via the Actions UI (`workflow_dispatch`) to force a new patch release.
 
