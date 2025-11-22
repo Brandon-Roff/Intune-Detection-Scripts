@@ -69,4 +69,77 @@ Contributions are welcome! If you have any improvements or additional scripts to
 ### 📜 License
 Distributed under the MIT License. See LICENSE for more information.
 
+## 🔧 Architecture & Organization
+
+```
+Intune-Detection-Scripts/
+  AV/
+  Browsers (System)/
+  Buisness/
+  Developer/
+  Media/
+  Monitoring/
+  Network Tools/
+  Productivity/
+  RMM/
+  Tools/
+  VPN/
+  modules/
+    DetectionCommon.psm1
+  build/
+    pack.ps1
+  .github/workflows/
+    auto-release.yml
+```
+
+- `modules/DetectionCommon.psm1`: Shared helper functions used by individual detection scripts (registry search, file path checks, PATH executable lookup, standardized exit codes).
+- Individual script folders remain for logical grouping. Each script should import the module if it benefits from shared logic.
+- `build/pack.ps1`: Packages all scripts + module into a versioned zip with a JSON manifest.
+- GitHub Actions workflow auto-tags and publishes a release zip on every push to `main`.
+
+## 🧪 Detection Script Conventions
+
+Each detection script MUST:
+- Exit with code `0` if the target application is detected.
+- Exit with code `1` if not detected.
+- Optionally write a single line like `AppName detected` for diagnostic clarity.
+
+Recommended template:
+```powershell
+Import-Module "$PSScriptRoot/../modules/DetectionCommon.psm1" -Force
+$detected = [bool](Get-AppByName '*App Name*') -or (Test-FilePaths @('C:\Program Files\App\app.exe')) -or (Test-ExecutableInPath @('app'))
+Resolve-Detection -Detected:$detected -Label 'App Name'
+```
+
+## 📦 Packaging & Releases
+
+The packaging script gathers all folders and creates: 
+- `manifest.json` containing version, UTC build time, and script count.
+- `Intune-Detection-Scripts-vX.Y.Z.zip` archive for distribution.
+
+### Automatic Versioning
+On each push to `main`:
+1. Workflow enumerates existing semantic tags `vMAJOR.MINOR.PATCH`.
+2. Increments PATCH (`v1.0.0` if none exist).
+3. Creates and pushes the new tag.
+4. Runs `build/pack.ps1 -Version <tag>`.
+5. Publishes a GitHub Release attaching the zip.
+
+### Manual Trigger
+You can also trigger the workflow via the Actions UI (`workflow_dispatch`) to force a new patch release.
+
+## 🚀 Using in Intune
+For Win32 detection logic:
+1. Include the desired script (and the module if needed) in your Win32 package source.
+2. Configure detection rule to run the script.
+3. Intune interprets exit code: `0 = installed`, `1 = not installed`.
+
+## 🛠 Future Improvements
+- Add remediation scripts (Install if missing) alongside detection.
+- Generate per-category zip bundles.
+- Add Pester tests for module functions.
+- Offer optional JSON output mode for richer telemetry.
+
+Feel free to open issues for any of these enhancements.
+
 

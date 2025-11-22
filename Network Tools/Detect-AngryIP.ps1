@@ -1,13 +1,9 @@
 # This Script will check for Angry IP Scanner
 
-$AngryIPPath = "C:\Program Files\Angry IP Scanner\ipscan.exe"
-
-#Check if Angry IP Scanner is installed
-
-if (Test-Path "$AngryIPPath") {
-    Write-Output "Angry IP Scanner files are present."
-    exit 0
-} else {
-    Write-Output "Angry IP Scanner files are not present."
-    exit 1
-}
+Import-Module "$PSScriptRoot/../../modules/DetectionCommon.psm1" -Force
+$paths = @(
+    "$Env:ProgramFiles\Angry IP Scanner\ipscan.exe",
+    "$Env:ProgramFiles(x86)\Angry IP Scanner\ipscan.exe"
+)
+$detected = (Test-FilePaths $paths) -or [bool](Get-AppByName '*Angry IP Scanner*')
+Resolve-Detection -Detected:$detected -Label 'Angry IP Scanner'

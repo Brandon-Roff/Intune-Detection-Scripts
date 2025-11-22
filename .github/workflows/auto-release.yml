@@ -1,0 +1,48 @@
+name: Auto Release
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  release:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Compute & Bump Version
+        id: version
+        shell: pwsh
+        run: |
+          $tags = git tag | Where-Object { $_ -match '^v[0-9]+\.[0-9]+\.[0-9]+$' }
+          if ($tags) {
+            $latest = ($tags | Sort-Object { $_ -replace 'v','' -as [version] } | Select-Object -Last 1)
+            $vObj = [version]($latest -replace 'v','')
+            $next = [version]::new($vObj.Major, $vObj.Minor, $vObj.Build + 1)
+            $newTag = "v$($next.ToString())"
+          } else { $newTag = 'v1.0.0' }
+          Write-Host "Next tag: $newTag"
+          echo "tag=$newTag" >> $env:GITHUB_OUTPUT
+      - name: Tag Repo
+        shell: pwsh
+        run: |
+          $tag = '${{ steps.version.outputs.tag }}'
+          git config user.name 'github-actions'
+          git config user.email 'github-actions@github.com'
+          git tag $tag
+          git push origin $tag
+      - name: Package Scripts
+        id: pack
+        shell: pwsh
+        run: |
+          pwsh build/pack.ps1 -Version '${{ steps.version.outputs.tag }}'
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.tag }}
+          name: Release ${{ steps.version.outputs.tag }}
+          files: build/output/*.zip
+          generate_release_notes: true
