@@ -30,7 +30,7 @@ To get started with these detection scripts, you'll need:
 1. Clone this repository to your local machine:
 
 ```shell
-git clone https://github.com/yourusername/intune-detection-scripts.git
+git clone https://github.com/Nerdy-Technician/intune-detection-scripts.git
 ```
 
 2. Navigate to the scripts directory:
